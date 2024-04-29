@@ -71,13 +71,13 @@ const bookNameInput = document.querySelector("#bookname");
 const bookAuthorInput = document.querySelector("#bookauthor");
 const bookPagesInput = document.querySelector("#bookpages");
 const bookReadInput = document.querySelector("#bookread");
-const addBookButton = document.querySelector(".addbook");
+const bookDialogForm = document.querySelector("#bookdialog form");
 
-
-addBookButton.addEventListener("click", (e) => {
+bookDialogForm.addEventListener("submit", (e) => {
     e.preventDefault();
     addBookToLibrary();
     bookDialog.close();
+    bookDialogForm.reset();
 });
 
 newBookButton.addEventListener("click", (e) => {

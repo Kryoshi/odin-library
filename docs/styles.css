@@ -164,6 +164,7 @@ fieldset li {
     appearance: none;
     border: 1px solid var(--color-theme-main-headings);
     padding: 0.5rem 0.5rem;
+    border-radius: 0.2rem;
 
     background: none;
     color: var(--color-theme-main-text);
@@ -178,8 +179,6 @@ fieldset li {
     background: none;
     width: 1rem;
     height: 1rem;
-    border: 1px solid var(--color-theme-main-text);
-    border-radius: 0.2rem;
     padding: 0.5rem;
 
     transition: all 0.2s linear;
