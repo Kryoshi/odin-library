@@ -77,7 +77,7 @@ html, body {
 }
 
 .container {
-    height: 100%;
+    min-height: 100%;
     display: grid;
     grid-template-rows: 8rem 1fr 6rem;
     background: var(--color-theme-main-bg);
@@ -99,6 +99,18 @@ html, body {
     border-radius: 0 0 2rem 2rem;
 
     justify-content: space-between;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icon {
+    width: 3rem;
+    height: 3rem;
+    fill: var(--color-theme-main-headings);
 }
 
 .addbook {
@@ -124,9 +136,49 @@ html, body {
     background: var(--color-theme-user);
 }
 
+.library {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
+    grid-auto-rows: 15rem;
+    gap: 1rem;
+}
+
 .card {
+    background: var(--color-theme-main);
     border: 1px solid var(--color-theme-main-text);
     border-radius: 1rem;
+
+    color: var(--color-theme-main-text);
+
+    display: grid;
+    grid-template-rows: 6rem 3rem 3rem 3rem;
+}
+
+.card:hover {
+    box-shadow: 0 0 0.3rem 0.3rem var(--color-theme-main-shadow);
+}
+
+.card .title, .card .author, .card .pages, .card .read {
+    padding: 1rem;
+}
+
+.card .title, .card .author, .card .pages {
+    border-bottom: 1px solid var(--color-theme-main-text);
+}
+
+.card .title {
+    color: var(--color-theme-main-headings);
+    background: var(--color-theme-user);
+    border-radius: 1rem 1rem 0 0;
+}
+
+.card .pages::after {
+    content: " pages";
+}
+
+.card .read {
+    justify-self: end;
 }
 
 .footer {
