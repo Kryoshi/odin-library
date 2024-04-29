@@ -55,7 +55,6 @@ function displayBook(book) {
         title.textContent = book.title;
         author.textContent = book.author;
         pages.textContent = book.pages;
-        read.textContent = (book.read ? "Read" : "Not read");
 
         newBook.append(title, author, pages, read);
 

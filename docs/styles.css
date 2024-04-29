@@ -244,6 +244,17 @@ fieldset li {
     color: var(--color-theme-unread);
 }
 
+.card .read::after {
+    content: "Read";
+}
+
+.card .notread::after {
+    content: "Unread";
+}
+
+
+
+
 .footer {
     justify-content: center;
 
