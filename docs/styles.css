@@ -9,12 +9,12 @@
     --color-theme-alt-bg: #0284c7;
     --color-theme-alt-text: white;
 
-    --color-theme-main: #f8fafc;
-    --color-theme-main-bg: #e2e8f0;
-    --color-theme-main-shadow: #a1a1aa;
+    --color-theme-main: #0c0a09;
+    --color-theme-main-bg: #09090b;
+    --color-theme-main-shadow: #6b7280;
 
-    --color-theme-main-headings: black;
-    --color-theme-main-text: #6b7280;
+    --color-theme-main-headings: #e5e7eb;
+    --color-theme-main-text: #fafaf9;
 
     --color-theme-user: #059669;
 }
@@ -27,6 +27,8 @@ h1,h2,h3,h4,h5,h6,p,a {
 
 button {
     appearance: none;
+    color: inherit;
+    cursor: pointer;
 }
 
 a {
@@ -72,4 +74,65 @@ html, body {
     padding: 0;
 
     height: 100%
+}
+
+.container {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 8rem 1fr 6rem;
+    background: var(--color-theme-main-bg);
+}
+
+.header, .footer, .page {
+    display: flex;
+    padding: 2rem 5%;
+}
+
+.header, .footer {
+    color: var(--color-theme-main-headings);
+    align-items: center;
+}
+
+.header {
+    background: var(--color-theme-main);
+    border-bottom: 1px solid var(--color-theme-main-text);
+    border-radius: 0 0 2rem 2rem;
+
+    justify-content: space-between;
+}
+
+.addbook {
+    width: 3rem;
+    height: 3rem;
+
+    border: 1px solid var(--color-theme-main-text);
+    border-radius: 0.5rem;
+    background: none;
+
+    transition: all 0.2s linear;
+}
+
+.addbook:hover {
+    background: var(--color-theme-main-text);
+    color: var(--color-theme-main);
+    box-shadow: 0 0 0.3rem 0.3rem var(--color-theme-main-shadow);
+}
+
+.addbook:active {
+    transition: all 0.1s linear;
+
+    background: var(--color-theme-user);
+}
+
+.card {
+    border: 1px solid var(--color-theme-main-text);
+    border-radius: 1rem;
+}
+
+.footer {
+    justify-content: center;
+
+    background: var(--color-theme-main);
+    border-top: 1px solid var(--color-theme-main-text);
+    border-radius: 2rem 2rem 0 0;
 }
