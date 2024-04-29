@@ -1,7 +1,7 @@
 const myLibrary = [];
 
-myLibrary.push(new Book("The Hobbit", "J. R. R. Tolkien", "500"));
-myLibrary.push(new Book("The Lord of the Rings", "J. R. R. Tolkien", "1000"));
+myLibrary.push(new Book("The Hobbit", "J. R. R. Tolkien", "500", true));
+myLibrary.push(new Book("The Lord of the Rings", "J. R. R. Tolkien", "1000", true));
 myLibrary.push(new Book("The Cat in the Hat", "Dr. Seuss", "50"));
 myLibrary.push(new Book("Shogun", "James Clavell", "500"));
 
@@ -20,11 +20,14 @@ Book.prototype.info = function() {
 }
 
 function addBookToLibrary() {
-    let title = prompt("");
-    let author = prompt("");
-    let pages = prompt("");
-    myLibrary.push(new Book(title, author, pages));
-    displayBook();
+    title = bookNameInput.value;
+    author = bookAuthorInput.value;
+    pages = bookPagesInput.value;
+    read = bookReadInput.checked;
+
+    book = new Book(title, author, pages, read)
+    myLibrary.push(book);
+    displayBook(book);
 }
 
 function displayLibrary() {
@@ -45,7 +48,7 @@ function displayBook(book) {
         title.className = "title";
         author.className = "author";
         pages.className = "pages";
-        read.className = "read";
+        read.className = (book.read ? "read" : "notread");
 
         console.log(book);
 
@@ -61,10 +64,24 @@ function displayBook(book) {
 
 
 const library = document.querySelector(".library");
-const newBookButton = document.querySelector("button");
+const newBookButton = document.querySelector(".newbook");
+const bookDialog = document.querySelector("#bookdialog");
+
+const bookNameInput = document.querySelector("#bookname");
+const bookAuthorInput = document.querySelector("#bookauthor");
+const bookPagesInput = document.querySelector("#bookpages");
+const bookReadInput = document.querySelector("#bookread");
+const addBookButton = document.querySelector(".addbook");
+
+
+addBookButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    addBookToLibrary();
+    bookDialog.close();
+});
 
 newBookButton.addEventListener("click", (e) => {
-    addBookToLibrary();
+    bookDialog.showModal();
 });
 
 displayLibrary();
