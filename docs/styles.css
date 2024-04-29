@@ -210,18 +210,19 @@ fieldset li {
     color: var(--color-theme-main-text);
 
     display: grid;
-    grid-template-rows: 6rem 3rem 3rem 3rem;
+    grid-template-rows: 6rem;
+    grid-auto-rows: 3rem;
 }
 
 .card:hover {
     box-shadow: 0 0 0.3rem 0.3rem var(--color-theme-main-shadow);
 }
 
-.card .title, .card .author, .card .pages, .card .read, .card .notread {
+.card * {
     padding: 1rem;
 }
 
-.card .title, .card .author, .card .pages {
+.card *:not(:last-child) {
     border-bottom: 1px solid var(--color-theme-main-text);
 }
 
@@ -233,10 +234,6 @@ fieldset li {
 
 .card .pages::after {
     content: " pages";
-}
-
-.card .read, .card .notread {
-    justify-self: end;
 }
 
 .card .read {
