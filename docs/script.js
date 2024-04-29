@@ -39,26 +39,38 @@ function displayLibrary() {
 
 function displayBook(book) {
     const newBook = document.createElement("div");
-        const title = document.createElement("h3");
-        const author = document.createElement("p");
-        const pages = document.createElement("p");
-        const read = document.createElement("h6");
+    const title = document.createElement("h3");
+    const author = document.createElement("p");
+    const pages = document.createElement("p");
+    const read = document.createElement("h6");
 
-        newBook.className = "card";
-        title.className = "title";
-        author.className = "author";
-        pages.className = "pages";
-        read.className = (book.read ? "read" : "notread");
+    newBook.className = "card";
+    title.className = "title";
+    author.className = "author";
+    pages.className = "pages";
+    read.className = (book.read ? "read" : "unread");
 
-        console.log(book);
+    console.log(book);
 
-        title.textContent = book.title;
-        author.textContent = book.author;
-        pages.textContent = book.pages;
+    title.textContent = book.title;
+    author.textContent = book.author;
+    pages.textContent = book.pages;
 
-        newBook.append(title, author, pages, read);
+    const buttons = document.createElement("div");
+    const buttonDelete = document.createElement("button");
+    const buttonRead = document.createElement("button");
 
-        library.appendChild(newBook);
+    buttons.className = "buttons";
+    buttonDelete.className = "delete";
+    buttonRead.className = "markread";
+
+    buttonDelete.textContent = "Delete";
+
+    buttons.append(buttonRead, buttonDelete);
+
+    newBook.append(title, author, pages, read, buttons);
+
+    library.appendChild(newBook);
 }
 
 
