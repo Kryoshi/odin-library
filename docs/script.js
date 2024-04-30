@@ -56,8 +56,6 @@ function generateCard(book) {
     pages.className = "pages";
     status.className = "status";
 
-    console.log(book);
-
     title.textContent = book.title;
     author.textContent = book.author;
     pages.textContent = book.pages;
