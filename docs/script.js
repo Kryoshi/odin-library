@@ -33,6 +33,7 @@ function addBookToLibrary() {
     book = new Book(title, author, pages, read)
     myLibrary.push(book);
     generateCard(book);
+    library.appendChild(libraryCards[libraryCards.length - 1])
 }
 
 function displayLibrary() {
