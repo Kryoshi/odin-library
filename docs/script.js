@@ -81,7 +81,7 @@ function generateCard(book) {
         if (e.target.tagName === "BUTTON") {
             index = libraryCards.indexOf(newBook);
             if (e.target.className === "markread") {
-                myLibrary[index].read = !myLibrary[index].read;
+                myLibrary[index].toggleRead();
                 newBook.className = (myLibrary[index].read ? "card read" : "card unread");
             } else if (e.target.className === "delete") {
                 newBook.remove();
