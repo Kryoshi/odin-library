@@ -245,19 +245,19 @@ fieldset li {
     content: " pages";
 }
 
-.card > .read {
+.card.read .status {
     color: var(--color-theme-read);
 }
 
-.card > .unread {
+.card.unread .status {
     color: var(--color-theme-unread);
 }
 
-.card > .read::after {
+.card.read .status::after {
     content: "Read";
 }
 
-.card > .unread::after {
+.card.unread .status::after {
     content: "Unread";
 }
 
@@ -277,19 +277,19 @@ fieldset li {
     border-bottom-right-radius: inherit;
 }
 
-.card .read ~ .buttons .markread {
+.card.read .markread {
     color: var(--color-theme-unread);
 }
 
-.card .unread ~ .buttons .markread {
+.card.unread .markread {
     color: var(--color-theme-read);
 }
 
-.card .read ~ .buttons .markread::after {
+.card.read .markread::after {
     content: "Mark as unread";
 }
 
-.card .unread ~ .buttons .markread::after {
+.card.unread .markread::after {
     content: "Mark as read";
 }
 

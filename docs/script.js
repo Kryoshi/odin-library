@@ -1,4 +1,5 @@
 const myLibrary = [];
+const libraryCards = [];
 
 myLibrary.push(new Book("The Hobbit", "J. R. R. Tolkien", "500", true));
 myLibrary.push(new Book("The Lord of the Rings", "J. R. R. Tolkien", "1000", true));
@@ -19,6 +20,10 @@ Book.prototype.info = function() {
         return `${this.title} by ${this.author}, ${pages} pages, not read yet.`;
 }
 
+Book.prototype.toggleRead = function() {
+    this.read = !(this.read);
+}
+
 function addBookToLibrary() {
     title = bookNameInput.value;
     author = bookAuthorInput.value;
@@ -27,28 +32,29 @@ function addBookToLibrary() {
 
     book = new Book(title, author, pages, read)
     myLibrary.push(book);
-    displayBook(book);
+    generateCard(book);
 }
 
 function displayLibrary() {
     for (let i in myLibrary) {
         let book = myLibrary[i];
-        displayBook(book);
+        generateCard(book);
+        library.appendChild(libraryCards[i]);
     }
 }
 
-function displayBook(book) {
+function generateCard(book) {
     const newBook = document.createElement("div");
     const title = document.createElement("h3");
     const author = document.createElement("p");
     const pages = document.createElement("p");
-    const read = document.createElement("h6");
+    const status = document.createElement("h6");
 
-    newBook.className = "card";
+    newBook.className = (book.read ? "card read" : "card unread");
     title.className = "title";
     author.className = "author";
     pages.className = "pages";
-    read.className = (book.read ? "read" : "unread");
+    status.className = "status";
 
     console.log(book);
 
@@ -68,9 +74,22 @@ function displayBook(book) {
 
     buttons.append(buttonRead, buttonDelete);
 
-    newBook.append(title, author, pages, read, buttons);
+    newBook.append(title, author, pages, status, buttons);
+    libraryCards.push(newBook);
 
-    library.appendChild(newBook);
+    newBook.addEventListener("click", (e) => {
+        if (e.target.tagName === "BUTTON") {
+            index = libraryCards.indexOf(newBook);
+            if (e.target.className === "markread") {
+                myLibrary[index].read = !myLibrary[index].read;
+                newBook.className = (myLibrary[index].read ? "card read" : "card unread");
+            } else if (e.target.className === "delete") {
+                newBook.remove();
+                libraryCards.splice(index, 1);
+                myLibrary.splice(index, 1);
+            }
+        }
+    });
 }
 
 
