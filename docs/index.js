@@ -2,7 +2,12 @@ const myLibrary = [];
 const libraryCards = [];
 
 class Book {
-    constructor(title, author, pages, read = false) {
+    title;
+    author;
+    pages;
+    read = false;
+
+    constructor(title, author, pages, read) {
         this.title = title;
         this.author = author;
         this.pages = pages;
