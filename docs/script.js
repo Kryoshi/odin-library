@@ -1,28 +1,30 @@
 const myLibrary = [];
 const libraryCards = [];
 
+class Book {
+    constructor(title, author, pages, read = false) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+
+    info() {
+        if (read)
+            return `${this.title} by ${this.author}, ${pages} pages, has been read.`;
+        else
+            return `${this.title} by ${this.author}, ${pages} pages, not read yet.`;
+    }
+
+    toggleRead() {
+        this.read = !(this.read);
+    }
+}
+
 myLibrary.push(new Book("The Hobbit", "J. R. R. Tolkien", "500", true));
 myLibrary.push(new Book("The Lord of the Rings", "J. R. R. Tolkien", "1000", true));
 myLibrary.push(new Book("The Cat in the Hat", "Dr. Seuss", "50"));
 myLibrary.push(new Book("Shogun", "James Clavell", "500"));
-
-function Book(title, author, pages, read = false) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-}
-
-Book.prototype.info = function() {
-    if (read)
-        return `${this.title} by ${this.author}, ${pages} pages, has been read.`;
-    else
-        return `${this.title} by ${this.author}, ${pages} pages, not read yet.`;
-}
-
-Book.prototype.toggleRead = function() {
-    this.read = !(this.read);
-}
 
 function addBookToLibrary() {
     title = bookNameInput.value;
