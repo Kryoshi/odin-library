@@ -20,6 +20,28 @@
     --color-theme-delete: #ef4444;
 }
 
+:root .theme-light {
+    --color-theme-main: #fafaf9;
+    --color-theme-main-bg: #e5e7eb;
+    --color-theme-main-shadow: #a3a3a3;
+
+    --color-theme-main-headings: #0c0a09;
+    --color-theme-main-text: #09090b;
+
+    --color-theme-user: #34d399;
+}
+
+:root .theme-dark {
+    --color-theme-main: #0c0a09;
+    --color-theme-main-bg: #09090b;
+    --color-theme-main-shadow: #6b7280;
+
+    --color-theme-main-headings: #e5e7eb;
+    --color-theme-main-text: #fafaf9;
+
+    --color-theme-user: #059669;
+}
+
 h1,h2,h3,h4,h5,h6,p,a {
     margin: 0;
     padding: 0;
